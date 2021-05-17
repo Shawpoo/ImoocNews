@@ -1,7 +1,7 @@
 <template>
 	<view class="page-index">
 		<titlebar></titlebar>
-		<tab :list="tabList"></tab>
+		<tab :list="tabList" @clickTab="clickTab"></tab>
 		<view>
 			<view v-for="(item, index) in 100" :key="index">{{index}} xxxxx</view>
 		</view>
@@ -25,6 +25,12 @@
 			this.loadLabelData();
 		},
 		methods: {
+			clickTab({
+				data,
+				index
+			}) {
+				console.log(data, index);
+			},
 			loadLabelData() {
 				this.$api.get_label({
 					name: 'get_bebel',

@@ -1,6 +1,7 @@
 <template>
 	<view class="page-index">
 		<titlebar></titlebar>
+		<tab :list="tabList"></tab>
 		<view>
 			<view v-for="(item, index) in 100" :key="index">{{index}} xxxxx</view>
 		</view>
@@ -16,14 +17,23 @@
 		// },
 		data() {
 			return {
-				title: 'Hello'
+				title: 'Hello',
+				tabList: []
 			}
 		},
 		onLoad() {
-
+			this.loadLabelData();
 		},
 		methods: {
-
+			loadLabelData() {
+				uniCloud.callFunction({
+					name: 'get_label',
+				}).then((res) => {
+					const {result} = res;
+					this.tabList = result.data;
+					console.log(this.tabList);
+				})
+			}
 		}
 	}
 </script>

@@ -26,12 +26,13 @@
 		},
 		methods: {
 			loadLabelData() {
-				uniCloud.callFunction({
-					name: 'get_label',
+				this.$api.get_label({
+					name: 'get_bebel',
 				}).then((res) => {
-					const {result} = res;
-					this.tabList = result.data;
-					console.log(this.tabList);
+					const {
+						data
+					} = res;
+					this.tabList = data;
 				})
 			}
 		}

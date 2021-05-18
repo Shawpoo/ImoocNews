@@ -29,6 +29,7 @@
 		right: 0;
 		padding: 19rpx 20rpx;
 		background-color: $theme-color;
+		z-index: 999;
 
 		.search-content {
 			background-color: #fff;
